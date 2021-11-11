@@ -1,10 +1,18 @@
 ﻿
 import React, { Component } from "react";
+import Header from "../Common/Header";
+import image from "../assets/img/home-background.jpg"
 
 class About extends Component {
     render() {
         return (
             <div>
+                <Header 
+                    title = "About us"
+                    subtitle = "IT'S REALLY A GREAT STORY"
+                    showButton={false}
+                    image={image}
+                />
                 <section className="page-section" id="about">
                     <div className="container">
                         <div className="text-center">
