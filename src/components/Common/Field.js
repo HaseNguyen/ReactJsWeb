@@ -12,8 +12,10 @@ class Field extends Component {
                         placeholder={this.props.placeholder}
                         required="required"
                         data-sb-validations="required"
-                        value={this.props.value}
-                        onChange={e => this.props.onChange(e)} />
+                        name={this.props.name}
+                        onChange={this.props.onChange}
+                        onBlur={this.props.onBlur}
+                    />
                     :
                     <textarea className="form-control"
                         id={this.props.name}
@@ -21,11 +23,21 @@ class Field extends Component {
                         placeholder={this.props.placeholder}
                         required="required"
                         data-sb-validations="required"
-                        value={this.props.value}
-                        onChange={e => this.props.onChange(e)} />
+                        name={this.props.name}
+                        onChange={this.props.onChange}
+                        onBlur={this.props.onBlur}
+                    />
                 }
+                <p className="help-block text-danger">
+                    {(this.props.touched && this.props.errors) &&
+                        <span>{this.props.errors}</span>
+                    }
+                </p>
                 <div className="invalid-feedback"
-                    data-sb-feedback="name:required">A name is required.</div>
+                    data-sb-feedback="name:required">{(this.props.touched && this.props.errors) &&
+                        <span>{this.props.errors}</span>
+                    }
+                </div>
             </div>
         );
     }
